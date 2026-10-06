@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>勉強スイッチ</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111425">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="勉強スイッチ">
+    <link rel="apple-touch-icon" href="./icon.png">
+    <link rel="icon" href="./icon.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- =========================
+         ヘッダー
+    ========================== -->
+
+    <header>
+
+        <div class="header-title">
+            ✨ 勉強スイッチ ✨
+        </div>
+
+        <button
+            class="history-button"
+            onclick="openHistoryScreen()"
+        >
+            📅 記録
+        </button>
+
+    </header>
+
+
+    <main class="content">
+
+
+        <!-- =========================
+             SCREEN 1
+             悩み入力
+        ========================== -->
+
+        <section
+            id="screen-1"
+            class="screen active"
+        >
+
+            <div class="welcome-icon">
+                💭
+            </div>
+
+            <h1>
+                いま、どんな気分？
+            </h1>
+
+            <p class="subtitle">
+                勉強したくない理由も、<br>
+                そのまま書いてOK！
+            </p>
+
+
+            <!-- カテゴリ -->
+
+            <div class="category-section">
+
+                <div class="section-label">
+                    🏷️ どんな悩み？
+                </div>
+
+                <div class="category-grid">
+
+
+                    <button
+                        class="category-btn"
+                        data-category="school"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            🏫
+                        </span>
+
+                        <span class="category-name">
+                            学校・クラス
+                        </span>
+
+                        <span class="category-sub">
+                            クラス・先生・学校生活
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="friend"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            👭
+                        </span>
+
+                        <span class="category-name">
+                            友達
+                        </span>
+
+                        <span class="category-sub">
+                            仲良し・ケンカ・距離感
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="love"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            ❤️
+                        </span>
+
+                        <span class="category-name">
+                            恋愛
+                        </span>
+
+                        <span class="category-sub">
+                            好きな人・恋人・告白
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="study"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            📚
+                        </span>
+
+                        <span class="category-name">
+                            勉強
+                        </span>
+
+                        <span class="category-sub">
+                            テスト・成績・やる気
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="family"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            👪
+                        </span>
+
+                        <span class="category-name">
+                            家族
+                        </span>
+
+                        <span class="category-sub">
+                            親・兄弟・家での悩み
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="club"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            🥲
+                        </span>
+
+                        <span class="category-name">
+                            部活
+                        </span>
+
+                        <span class="category-sub">
+                            先輩・後輩・練習
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="sns"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            📱
+                        </span>
+
+                        <span class="category-name">
+                            SNS
+                        </span>
+
+                        <span class="category-sub">
+                            LINE・投稿・既読
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="life"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            😴
+                        </span>
+
+                        <span class="category-name">
+                            生活・睡眠
+                        </span>
+
+                        <span class="category-sub">
+                            睡眠・スマホ・生活習慣
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="money"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            💰
+                        </span>
+
+                        <span class="category-name">
+                            お金
+                        </span>
+
+                        <span class="category-sub">
+                            お小遣い・バイト・節約
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="future"
+                        onclick="selectCategory(this)"
+                    >
+                        <span class="category-icon">
+                            🤔
+                        </span>
+
+                        <span class="category-name">
+                            進路
+                        </span>
+
+                        <span class="category-sub">
+                            大学・専門・将来
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 悩み入力 -->
+
+            <div class="input-section">
+
+                <div class="section-label">
+                    💬 今の気持ちを教えて
+                </div>
+
+                <textarea
+                    id="reason-text-input"
+                    class="reason-input"
+                    placeholder="例：テスト範囲が広すぎてやる気出ない&#10;英語の長文がめんどくさい&#10;部活で疲れて勉強する気になれない…"
+                ></textarea>
+
+                <div class="input-hint">
+                    💡 うまく書かなくても大丈夫！
+                </div>
+
+            </div>
+
+
+            <!-- ボタン -->
+
+            <button
+                class="btn main-btn"
+                onclick="submitReason()"
+            >
+                ✨ 相談してみる
+            </button>
+
+
+            <p class="privacy-note">
+                🔒 書いた内容は自分の記録として使えます
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             SCREEN 2
+             意見・解決方法
+        ========================== -->
+
+        <section
+            id="screen-2"
+            class="screen"
+        >
+
+            <div class="result-icon">
+                💡
+            </div>
+
+            <h1>
+                こんな考え方もあるよ
+            </h1>
+
+            <p class="subtitle">
+                正解は1つじゃない。<br>
+                「これならできそう」を探してみよう！
+            </p>
+
+
+            <!-- 入力した悩み -->
+
+            <div class="your-problem">
+
+                <div class="problem-label">
+                    📝 あなたの悩み
+                </div>
+
+                <p id="problem-display">
+                </p>
+
+            </div>
+
+
+            <!-- 意見 -->
+
+            <div class="result-section">
+
+                <div class="result-section-title">
+                    👀 いろんな意見
+                </div>
+
+                <div
+                    id="opinions-container"
+                    class="opinions-list"
+                >
+
+                    <!-- JavaScriptで追加 -->
+
+                </div>
+
+            </div>
+
+
+            <!-- 解決方法 -->
+
+            <div class="result-section">
+
+                <div class="result-section-title">
+                    🛠️ できそうな解決方法
+                </div>
+
+                <div
+                    id="solutions-container"
+                    class="solutions-list"
+                >
+
+                    <!-- JavaScriptで追加 -->
+
+                </div>
+
+            </div>
+
+
+            <!-- まずやってみる -->
+
+            <div class="action-box">
+
+                <div class="action-title">
+                    🚀 まずはこれだけ！
+                </div>
+
+                <p id="action-text">
+                    5分だけ、できそうなことをやってみよう。
+                </p>
+
+            </div>
+
+
+            <!-- タイマー -->
+
+            <div class="timer-area">
+
+                <div class="timer-label">
+                    ⏱️ ちょっとだけやってみる
+                </div>
+
+                <div
+                    class="timer-display"
+                    id="timer"
+                >
+                    05:00
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="start-btn"
+                onclick="startTimer()"
+            >
+                🔥 5分だけやってみる！
+            </button>
+
+
+            <button
+                class="btn btn-outline"
+                id="abort-btn"
+                onclick="openAbortScreen()"
+            >
+                今日はここまでにする
+            </button>
+
+        </section> <!-- ========================================
+             2: 意見・解決方法
+        ======================================== -->
+
+        <div id="screen-2" class="screen">
+
+            <div class="result-icon">
+                💡
+            </div>
+
+            <h2>こんな考え方もあるよ</h2>
+
+            <p class="subtitle">
+                今の悩みに近い意見と、できそうな方法をまとめたよ
+            </p>
+
+
+            <!-- 自分の悩み -->
+
+            <div class="your-problem">
+
+                <div class="problem-label">
+                    💭 あなたが書いたこと
+                </div>
+
+                <p id="problem-display"></p>
+
+            </div>
+
+
+            <!-- いろんな意見 -->
+
+            <div class="result-section">
+
+                <div class="result-section-title">
+                    🗣️ いろんな意見
+                </div>
+
+                <div
+                    id="opinions-container"
+                    class="opinions-list"
+                ></div>
+
+            </div>
+
+
+            <!-- 解決方法 -->
+
+            <div class="result-section">
+
+                <div class="result-section-title">
+                    🛠️ できそうな解決方法
+                </div>
+
+                <div
+                    id="solutions-container"
+                    class="solutions-list"
+                ></div>
+
+            </div>
+
+
+            <!-- まずはこれだけ -->
+
+            <div class="action-box">
+
+                <div class="action-title">
+                    ⭐ まずはこれだけ！
+                </div>
+
+                <p id="action-text"></p>
+
+            </div>
+
+
+            <!-- タイマー -->
+
+            <div class="timer-area">
+
+                <div class="timer-label">
+                    とりあえず5分だけ
+                </div>
+
+                <div
+                    class="timer-display"
+                    id="timer"
+                >
+                    05:00
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="start-btn"
+                onclick="startTimer()"
+            >
+                🔥 5分だけやってみる！
+            </button>
+
+
+            <button
+                class="btn btn-outline"
+                id="abort-btn"
+                onclick="openAbortScreen()"
+            >
+                やっぱり今日はここまでにする
+            </button>
+
+        </div>
+
+
+        <!-- ========================================
+             2-B: やめる確認
+        ======================================== -->
+
+        <div id="screen-abort" class="screen">
+
+            <div class="result-icon">
+                 📝 
+            </div>
+
+            <h2>おつかれさま！</h2>
+
+            <p class="subtitle">
+                今日は無理しすぎなくても大丈夫
+            </p>
+
+
+            <div class="proposal-box">
+
+                <p>
+                    アプリを開いて、<br>
+                    自分の本音を書き出せただけでも<br>
+                    <strong>ちゃんと一歩進んでるよ。</strong>
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn btn-secondary"
+                onclick="resumeTimer()"
+            >
+                🔥 やっぱり続ける
+            </button>
+
+
+            <button
+                class="btn"
+                onclick="finishAndSave(false)"
+            >
+                 📝  記録して今日は終了
+            </button>
+
+        </div>
+
+
+        <!-- ========================================
+             3: 5分達成
+        ======================================== -->
+
+        <div id="screen-3" class="screen">
+
+            <div class="result-icon">
+                🎉
+            </div>
+
+            <h2>すごい！5分やりきった！</h2>
+
+            <p class="subtitle">
+                「始める」が一番大変だったりするよね
+            </p>
+
+
+            <div class="record-card">
+
+                <div class="stamp">
+                    🚀
+                </div>
+
+                <h3>
+                    5分クリア！
+                </h3>
+
+                <p>
+                    最初のハードルは突破できたよ。
+                </p>
+
+                <p>
+                    まだできそうなら、
+                    <strong>もう5分だけ</strong>
+                    やってみよう！
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn btn-secondary"
+                onclick="addMoreTime()"
+            >
+                🔥 もう5分だけやってみる！
+            </button>
+
+
+            <button
+                class="btn btn-outline"
+                onclick="finishAndSave(true)"
+            >
+                 📝  今日はここまでにする
+            </button>
+
+        </div>
+
+
+        <!-- ========================================
+             4: 完了
+        ======================================== -->
+
+        <div id="screen-4" class="screen">
+
+            <div class="record-card">
+
+                <div class="stamp" id="record-stamp">
+                    🚀
+                </div>
+
+                <h3 id="record-title">
+                    おつかれさま！
+                </h3>
+
+                <p id="record-summary">
+                    今日も一歩進めたね。
+                </p>
+
+                <p id="record-desc">
+                    小さく始めたことがすごい！
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="openHistoryScreen()"
+            >
+                📅 勉強の履歴を見る
+            </button>
+
+
+            <button
+                class="btn btn-outline"
+                onclick="resetApp()"
+            >
+                🏠 ホームに戻る
+            </button>
+
+        </div>
+
+
+        <!-- ========================================
+             5: 履歴
+        ======================================== -->
+
+        <div id="screen-history" class="screen">
+
+            <div class="result-icon">
+                📅
+            </div>
+
+            <h2>勉強の軌跡</h2>
+
+            <p class="subtitle">
+                今までの「ちょっと頑張った」を残しておこう
+            </p>
+
+
+            <div
+                id="history-container"
+                class="history-list"
+            ></div>
+
+
+            <button
+                class="btn"
+                onclick="resetApp()"
+            >
+                🏠 ホームに戻る
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ========================================
+     JavaScript
+======================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

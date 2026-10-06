@@ -1,0 +1,2814 @@
+/* ========================================
+   勉強スイッチ
+   CSS 1 / 4
+   基本・アプリ本体・ヘッダー
+======================================== */
+
+
+/* ========================================
+   カラーテーマ
+======================================== */
+
+:root {
+
+    /* メインカラー */
+    --primary: #7C4DFF;
+    --primary-light: #B388FF;
+
+    /* サブカラー */
+    --blue: #40C4FF;
+    --green: #00E5A8;
+    --pink: #FF6FAE;
+    --yellow: #FFD54F;
+
+    /* 背景 */
+    --bg-color: #080A14;
+    --card-bg: #15182A;
+    --card-light: #1E2238;
+
+    /* 入力欄 */
+    --input-bg: #0F1220;
+
+    /* 文字 */
+    --text-color: #FFFFFF;
+    --gray-text: #AEB2C7;
+    --muted-text: #747A96;
+
+    /* 枠線 */
+    --border:
+        rgba(255, 255, 255, 0.08);
+
+    /* 影 */
+    --shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ========================================
+   全体
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 20px;
+
+    min-height: 100vh;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Noto Sans JP",
+        sans-serif;
+
+    color: var(--text-color);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(124, 77, 255, 0.20),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(0, 229, 168, 0.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(64, 196, 255, 0.08),
+            transparent 25%
+        ),
+
+        var(--bg-color);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* ========================================
+   アプリ本体
+======================================== */
+
+.app-container {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    min-height: 680px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #191D32,
+            #111424
+        );
+
+    border-radius: 28px;
+
+    border:
+        1px solid
+        rgba(124, 77, 255, 0.25);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0, 0, 0, 0.55),
+
+        0 0 50px
+        rgba(124, 77, 255, 0.08);
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+}
+
+
+/* ========================================
+   ヘッダー
+======================================== */
+
+header {
+
+    min-height: 64px;
+
+    padding:
+        15px 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #6335D5 0%,
+            #7C4DFF 45%,
+            #40C4FF 100%
+        );
+
+    box-shadow:
+
+        0 7px 25px
+        rgba(124, 77, 255, 0.25);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ヘッダーの光 */
+
+header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    top: -100px;
+
+    right: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   ヘッダータイトル
+======================================== */
+
+.header-title {
+
+    font-size: 1.05rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+/* ========================================
+   履歴ボタン
+======================================== */
+
+.history-button {
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.3);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    padding:
+        7px 12px;
+
+    border-radius: 30px;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.history-button:hover {
+
+    background:
+        rgba(255, 255, 255, 0.25);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+.history-button:active {
+
+    transform:
+        scale(0.96);
+}
+
+
+/* ========================================
+   メインコンテンツ
+======================================== */
+
+.content {
+
+    flex: 1;
+
+    padding:
+        23px 21px;
+
+    overflow-y: auto;
+
+    max-height: 610px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--primary)
+        transparent;
+}
+
+
+/* Chrome / Edge / Safari */
+
+.content::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.content::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+.content::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            var(--primary),
+            var(--blue)
+        );
+
+    border-radius: 10px;
+}
+
+
+/* ========================================
+   画面
+======================================== */
+
+.screen {
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    animation:
+        screenAppear
+        0.3s
+        ease;
+}
+
+
+.screen.active {
+
+    display: flex;
+}
+
+
+/* 画面切り替えアニメーション */
+
+@keyframes screenAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ========================================
+   大きな見出し
+======================================== */
+
+h1 {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 1.45rem;
+
+    line-height: 1.4;
+
+    font-weight: 900;
+
+    letter-spacing: 0.2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #C7B3FF,
+            #FFFFFF,
+            #70D8FF
+        );
+
+    -webkit-background-clip: text;
+background-clip: text;
+    -webkit-text-fill-color:
+        transparent;
+}
+
+
+/* ========================================
+   説明文
+======================================== */
+
+.subtitle {
+
+    margin:
+        -4px 0 7px;
+
+    text-align: center;
+
+    color: var(--gray-text);
+
+    font-size: 0.83rem;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   最初のアイコン
+======================================== */
+
+.welcome-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin:
+        0 auto 2px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 22px;
+
+    font-size: 2rem;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(124, 77, 255, 0.22),
+            rgba(64, 196, 255, 0.15)
+        );
+
+    border:
+        1px solid
+        rgba(179, 136, 255, 0.25);
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(124, 77, 255, 0.15);
+}
+
+
+/* ========================================
+   セクションラベル
+======================================== */
+
+.section-label {
+
+    color: #E6E2FF;
+
+    font-size: 0.82rem;
+
+    font-weight: 900;
+
+    margin-bottom: 7px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* ========================================
+   入力セクション
+======================================== */
+
+.input-section {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ========================================
+   悩み入力
+======================================== */
+
+.reason-input {
+
+    width: 100%;
+
+    min-height: 115px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    outline: none;
+
+    border-radius: 16px;
+
+    border:
+        2px solid
+        #292E49;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0E1120,
+            #131729
+        );
+
+    color:
+        var(--text-color);
+
+    font-family: inherit;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+
+.reason-input:focus {
+
+    border-color:
+        var(--primary);
+
+    background:
+        #121629;
+
+    box-shadow:
+
+        0 0 0 4px
+        rgba(124, 77, 255, 0.12);
+}
+
+
+.reason-input::placeholder {
+
+    color:
+        #626881;
+}
+
+
+/* ========================================
+   入力ヒント
+======================================== */
+
+.input-hint {
+
+    margin-top: 6px;
+
+    color:
+        var(--muted-text);
+
+    font-size: 0.68rem;
+
+    text-align: right;
+}
+
+
+/* ========================================
+   基本ボタン
+======================================== */
+
+.btn {
+
+    width: 100%;
+
+    padding:
+        14px 18px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-size: 0.94rem;
+
+    font-weight: 900;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #7040E8,
+            #8B5CF6,
+            #40C4FF
+        );
+
+    box-shadow:
+
+        0 7px 22px
+        rgba(124, 77, 255, 0.30);
+
+    transition:
+        transform 0.15s,
+        opacity 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.btn:hover {
+
+    opacity: 0.95;
+
+    box-shadow:
+
+        0 9px 28px
+        rgba(124, 77, 255, 0.40);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.btn:active {
+
+    transform:
+        scale(0.97);
+}
+
+
+/* ========================================
+   メインボタン
+======================================== */
+
+.main-btn {
+
+    margin-top: 2px;
+
+    font-size: 0.98rem;
+
+    padding:
+        15px;
+}
+
+
+/* ========================================
+   アウトラインボタン
+======================================== */
+
+.btn-outline {
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        var(--gray-text);
+
+    border:
+        1px solid
+        #343952;
+
+    box-shadow: none;
+}
+
+
+.btn-outline:hover {
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border-color:
+        #555C7E;
+
+    color: white;
+
+    box-shadow: none;
+}
+
+
+/* ========================================
+   緑ボタン
+======================================== */
+
+.btn-secondary {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #00CFA0,
+            #00E676
+        );
+
+    color:
+        #06150F;
+
+    box-shadow:
+
+        0 7px 22px
+        rgba(0, 230, 118, 0.22);
+}
+
+
+.btn-secondary:hover {
+
+    box-shadow:
+
+        0 9px 28px
+        rgba(0, 230, 118, 0.30);
+}
+
+
+/* ========================================
+   小さな注意書き
+======================================== */
+
+.privacy-note {
+
+    margin: -5px 0 0;
+
+    text-align: center;
+
+    color:
+        var(--muted-text);
+
+    font-size: 0.65rem;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   フォーカス
+======================================== */
+
+button:focus-visible,
+textarea:focus-visible {
+
+    outline:
+        3px solid
+        rgba(64, 196, 255, 0.45);
+
+    outline-offset: 2px;
+}/* ========================================
+   勉強スイッチ
+   CSS 2 / 4
+   10カテゴリ・選択ボタン
+======================================== */
+
+
+/* ========================================
+   カテゴリ全体
+======================================== */
+
+.category-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+/* ========================================
+   カテゴリグリッド
+======================================== */
+
+.category-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 9px;
+
+    width: 100%;
+}
+
+
+/* ========================================
+   カテゴリボタン
+======================================== */
+
+.category-btn {
+
+    position: relative;
+
+    min-height: 92px;
+
+    padding:
+        12px 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    text-align: left;
+
+    border-radius: 16px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #20243B,
+            #181B2D
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+/* カテゴリボタンの光 */
+
+.category-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+
+    height: 70px;
+
+    top: -35px;
+
+    right: -30px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    pointer-events: none;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* ========================================
+   ホバー
+======================================== */
+
+.category-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(124, 77, 255, 0.45);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #292E49,
+            #20243A
+        );
+
+    box-shadow:
+
+        0 8px 20px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+.category-btn:hover::before {
+
+    transform:
+        scale(1.5);
+}
+
+
+/* ========================================
+   タップ
+======================================== */
+
+.category-btn:active {
+
+    transform:
+        scale(0.96);
+}
+
+
+/* ========================================
+   選択されたカテゴリ
+======================================== */
+
+.category-btn.selected {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #6137D7,
+            #7C4DFF 55%,
+            #6950E8
+        );
+
+    border-color:
+        #B49AFF;
+
+    box-shadow:
+
+        0 7px 22px
+        rgba(124, 77, 255, 0.35);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* 選択時の光 */
+
+.category-btn.selected::before {
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    transform:
+        scale(1.4);
+}
+
+
+/* ========================================
+   選択チェックマーク
+======================================== */
+
+.category-btn.selected::after {
+
+    content: "✓";
+
+    position: absolute;
+
+    top: 8px;
+
+    right: 8px;
+
+    width: 21px;
+
+    height: 21px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.20);
+
+    color: white;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   カテゴリアイコン
+======================================== */
+
+.category-icon {
+
+    display: block;
+
+    font-size: 1.45rem;
+
+    line-height: 1;
+
+    margin-bottom: 7px;
+
+    filter:
+        drop-shadow(
+            0 2px 5px
+            rgba(0, 0, 0, 0.25)
+        );
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.category-btn:hover .category-icon {
+
+    transform:
+        scale(1.08);
+}
+
+
+.category-btn.selected .category-icon {
+
+    transform:
+        scale(1.12);
+}
+
+
+/* ========================================
+   カテゴリ名
+======================================== */
+
+.category-name {
+
+    display: block;
+
+    color: #FFFFFF;
+
+    font-size: 0.82rem;
+
+    font-weight: 900;
+
+    line-height: 1.3;
+
+    letter-spacing: 0.1px;
+}
+
+
+/* ========================================
+   カテゴリ説明
+======================================== */
+
+.category-sub {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        #858BA5;
+
+    font-size: 0.62rem;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+.category-btn.selected .category-sub {
+
+    color:
+        #DDD5FF;
+}
+
+
+/* ========================================
+   カテゴリごとのアクセント
+======================================== */
+
+
+/* 学校 */
+
+.category-btn[data-category="school"] {
+    --category-color: #6EA8FF;
+}
+
+
+/* 友達 */
+
+.category-btn[data-category="friend"] {
+    --category-color: #FF7EB6;
+}
+
+
+/* 恋愛 */
+
+.category-btn[data-category="love"] {
+    --category-color: #FF5F9E;
+}
+
+
+/* 勉強 */
+
+.category-btn[data-category="study"] {
+    --category-color: #A980FF;
+}
+
+
+/* 家族 */
+
+.category-btn[data-category="family"] {
+    --category-color: #FFB45C;
+}
+
+
+/* 部活 */
+
+.category-btn[data-category="club"] {
+    --category-color: #5CE1E6;
+}
+
+
+/* SNS */
+
+.category-btn[data-category="sns"] {
+    --category-color: #58B7FF;
+}
+
+
+/* 生活 */
+
+.category-btn[data-category="life"] {
+    --category-color: #70E0A5;
+}
+
+
+/* お金 */
+
+.category-btn[data-category="money"] {
+    --category-color: #FFD35A;
+}
+
+
+/* 進路 */
+
+.category-btn[data-category="future"] {
+    --category-color: #C18CFF;
+}
+
+
+/* ========================================
+   カテゴリ選択時の上部ライン
+======================================== */
+
+.category-btn.selected {
+
+    border-top:
+        2px solid
+        var(--category-color, #B388FF);
+}
+
+
+/* ========================================
+   カテゴリセクションの間隔
+======================================== */
+
+.category-section + .input-section {
+
+    margin-top: 5px;
+}
+
+
+/* ========================================
+   カテゴリ選択時の説明
+======================================== */
+
+.selected-category-text {
+
+    margin-top: 7px;
+
+    padding:
+        7px 10px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(124, 77, 255, 0.08);
+
+    color:
+        #AFA7D0;
+
+    font-size: 0.7rem;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   タブレット・少し大きい画面
+======================================== */
+
+@media (min-width: 421px) {
+
+    .category-grid {
+
+        gap: 10px;
+    }
+
+    .category-btn {
+
+        min-height: 95px;
+
+        padding:
+            13px 11px;
+    }
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 420px) {
+
+    .category-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 8px;
+    }
+
+    .category-btn {
+
+        min-height: 88px;
+
+        padding:
+            11px 9px;
+
+        border-radius: 15px;
+    }
+
+    .category-icon {
+
+        font-size: 1.35rem;
+
+        margin-bottom: 6px;
+    }
+
+    .category-name {
+
+        font-size: 0.78rem;
+    }
+
+    .category-sub {
+
+        font-size: 0.59rem;
+    }
+}
+
+
+/* ========================================
+   小さいスマホ
+======================================== */
+
+@media (max-width: 360px) {
+
+    .category-grid {
+
+        gap: 6px;
+    }
+
+    .category-btn {
+
+        min-height: 82px;
+
+        padding:
+            9px 8px;
+    }
+
+    .category-icon {
+
+        font-size: 1.2rem;
+
+        margin-bottom: 5px;
+    }
+
+    .category-name {
+
+        font-size: 0.74rem;
+    }
+
+    .category-sub {
+
+        font-size: 0.55rem;
+    }
+}/* ========================================
+   勉強スイッチ
+   CSS 3 / 4
+   意見・解決方法・タイマー
+======================================== */
+
+
+/* ========================================
+   結果画面のアイコン
+======================================== */
+
+.result-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin: 0 auto 2px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 22px;
+
+    font-size: 2rem;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255, 213, 79, 0.14),
+            rgba(124, 77, 255, 0.18)
+        );
+
+    border:
+        1px solid
+        rgba(255, 213, 79, 0.20);
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(255, 213, 79, 0.08);
+}
+
+
+/* ========================================
+   自分の悩みカード
+======================================== */
+
+.your-problem {
+
+    padding:
+        13px 15px;
+
+    border-radius: 15px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(124, 77, 255, 0.12),
+            rgba(64, 196, 255, 0.06)
+        );
+
+    border:
+        1px solid
+        rgba(124, 77, 255, 0.18);
+}
+
+
+/* ========================================
+   悩みラベル
+======================================== */
+
+.problem-label {
+
+    margin-bottom: 5px;
+
+    color:
+        #B9ACFF;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   悩み本文
+======================================== */
+
+#problem-display {
+
+    margin: 0;
+
+    color:
+        #F0F1FA;
+
+    font-size: 0.85rem;
+
+    line-height: 1.65;
+
+    word-break: break-word;
+}
+
+
+/* ========================================
+   結果セクション
+======================================== */
+
+.result-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* ========================================
+   結果セクションタイトル
+======================================== */
+
+.result-section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color:
+        #F1EFFF;
+
+    font-size: 0.84rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   意見リスト
+======================================== */
+
+.opinions-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* ========================================
+   意見カード
+======================================== */
+
+.opinion-card {
+
+    position: relative;
+
+    padding:
+        11px 13px 11px 16px;
+
+    border-radius: 12px;
+
+    background:
+        #1C2034;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    color:
+        #DDE0F0;
+
+    font-size: 0.78rem;
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* 左側のカラーライン */
+
+.opinion-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 9px;
+
+    bottom: 9px;
+
+    width: 3px;
+
+    border-radius: 5px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #7C4DFF,
+            #40C4FF
+        );
+}
+
+
+/* ========================================
+   意見カード番号
+======================================== */
+
+.opinion-number {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 20px;
+
+    height: 20px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(124, 77, 255, 0.16);
+
+    color:
+        #B9A6FF;
+
+    font-size: 0.62rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   解決方法リスト
+======================================== */
+
+.solutions-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* ========================================
+   解決方法カード
+======================================== */
+
+.solution-card {
+
+    position: relative;
+
+    padding:
+        12px 13px 12px 42px;
+
+    min-height: 53px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 13px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 168, 0.08),
+            rgba(64, 196, 255, 0.05)
+        );
+
+    border:
+        1px solid
+        rgba(0, 229, 168, 0.13);
+
+    color:
+        #DDEFEA;
+
+    font-size: 0.78rem;
+
+    line-height: 1.55;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.solution-card:hover {
+
+    transform:
+        translateX(3px);
+
+    border-color:
+        rgba(0, 229, 168, 0.28);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 168, 0.12),
+            rgba(64, 196, 255, 0.07)
+        );
+}
+
+
+/* ========================================
+   解決方法アイコン
+======================================== */
+
+.solution-icon {
+
+    position: absolute;
+
+    left: 12px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 23px;
+
+    height: 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 229, 168, 0.14);
+
+    color:
+        #00E5A8;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   「まずはこれだけ」ボックス
+======================================== */
+
+.action-box {
+
+    position: relative;
+
+    margin-top: 3px;
+
+    padding:
+        15px;
+
+    border-radius: 17px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(124, 77, 255, 0.18),
+            rgba(64, 196, 255, 0.10)
+        );
+
+    border:
+        1px solid
+        rgba(124, 77, 255, 0.25);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 6px 20px
+        rgba(124, 77, 255, 0.08);
+}
+
+
+/* 光る丸 */
+
+.action-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+
+    height: 90px;
+
+    right: -35px;
+
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(64, 196, 255, 0.10);
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   アクションタイトル
+======================================== */
+
+.action-title {
+
+    margin-bottom: 5px;
+
+    color:
+        #CFC2FF;
+
+    font-size: 0.82rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   アクション本文
+======================================== */
+
+#action-text {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin: 0;
+
+    color:
+        #F1F2FA;
+
+    font-size: 0.83rem;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   タイマーエリア
+======================================== */
+
+.timer-area {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 2px;
+}
+
+
+/* ========================================
+   タイマーラベル
+======================================== */
+
+.timer-label {
+
+    color:
+        var(--gray-text);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   タイマー表示
+======================================== */
+
+.timer-display {
+
+    margin:
+        2px 0 0;
+
+    color:
+        #00F5C4;
+
+    font-size: 3.2rem;
+
+    line-height: 1.15;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    font-variant-numeric:
+        tabular-nums;
+
+    text-shadow:
+
+        0 0 12px
+        rgba(0, 245, 196, 0.22),
+
+        0 0 30px
+        rgba(0, 245, 196, 0.08);
+}
+
+
+/* ========================================
+   タイマー実行中
+======================================== */
+
+.timer-display.running {
+
+    animation:
+        timerGlow
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes timerGlow {
+
+    0%,
+    100% {
+
+        text-shadow:
+
+            0 0 10px
+            rgba(0, 245, 196, 0.20);
+    }
+
+    50% {
+
+        text-shadow:
+
+            0 0 18px
+            rgba(0, 245, 196, 0.45),
+
+            0 0 35px
+            rgba(0, 245, 196, 0.12);
+    }
+}
+
+
+/* ========================================
+   タイマー終了時
+======================================== */
+
+.timer-display.finished {
+
+    color:
+        #FFD54F;
+
+    text-shadow:
+
+        0 0 15px
+        rgba(255, 213, 79, 0.35);
+}
+
+
+/* ========================================
+   タイマー下のボタン間隔
+======================================== */
+
+#start-btn {
+
+    margin-top: 1px;
+}
+
+
+#abort-btn {
+
+    margin-top: -3px;
+}
+
+
+/* ========================================
+   空の結果
+======================================== */
+
+.empty-result {
+
+    padding:
+        15px;
+
+    text-align: center;
+
+    color:
+        var(--muted-text);
+
+    font-size: 0.76rem;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* ========================================
+   結果カードのスマホ調整
+======================================== */
+
+@media (max-width: 420px) {
+
+    .result-icon {
+
+        width: 58px;
+
+        height: 58px;
+
+        border-radius: 20px;
+
+        font-size: 1.8rem;
+    }
+
+    .timer-display {
+
+        font-size: 3rem;
+
+        letter-spacing: 2px;
+    }
+
+    .opinion-card,
+    .solution-card {
+
+        font-size: 0.76rem;
+    }
+}
+
+
+/* ========================================
+   小さいスマホ
+======================================== */
+
+@media (max-width: 360px) {
+
+    .your-problem {
+
+        padding:
+            11px 12px;
+    }
+
+    .action-box {
+
+        padding:
+            13px;
+    }
+
+    .timer-display {
+
+        font-size: 2.7rem;
+    }
+}/* ========================================
+   勉強スイッチ
+   CSS 4 / 4
+   完了画面・履歴・スマホ最終調整
+======================================== */
+
+
+/* ========================================
+   完了カード
+======================================== */
+
+.record-card {
+
+    position: relative;
+
+    padding:
+        24px 18px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #5930C8 0%,
+            #7C4DFF 45%,
+            #319DDC 100%
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(124, 77, 255, 0.28);
+
+    overflow: hidden;
+}
+
+
+/* 完了カードの光 */
+
+.record-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+
+    height: 170px;
+
+    top: -100px;
+
+    right: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    pointer-events: none;
+}
+
+
+.record-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+
+    height: 120px;
+
+    bottom: -80px;
+
+    left: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 229, 168, 0.10);
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   完了タイトル
+======================================== */
+
+.record-card h3 {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        0 0 8px;
+
+    font-size: 1.2rem;
+
+    font-weight: 900;
+
+    line-height: 1.4;
+}
+
+
+/* ========================================
+   スタンプ
+======================================== */
+
+.stamp {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        8px 0 10px;
+
+    font-size: 4rem;
+
+    line-height: 1;
+
+    filter:
+
+        drop-shadow(
+            0 5px 10px
+            rgba(0, 0, 0, 0.20)
+        );
+
+    animation:
+        stampPop
+        0.5s
+        ease;
+}
+
+
+@keyframes stampPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            rotate(-10deg);
+    }
+
+    70% {
+
+        transform:
+            scale(1.12)
+            rotate(3deg);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+/* ========================================
+   完了カード本文
+======================================== */
+
+.record-card p {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        9px 0;
+
+    color:
+        rgba(255, 255, 255, 0.92);
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+}
+
+
+/* ========================================
+   履歴画面
+======================================== */
+
+.history-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    max-height: 390px;
+
+    overflow-y: auto;
+
+    padding:
+        2px 4px 4px 1px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--primary)
+        transparent;
+}
+
+
+.history-list::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.history-list::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+}
+
+
+.history-list::-webkit-scrollbar-thumb {
+
+    background:
+        var(--primary);
+
+    border-radius:
+        10px;
+}
+
+
+/* ========================================
+   履歴アイテム
+======================================== */
+
+.history-item {
+
+    position: relative;
+
+    padding:
+        13px 14px 13px 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    border-radius: 14px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #181C30,
+            #111425
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    border-left:
+        4px solid
+        var(--primary);
+
+    box-shadow:
+
+        0 4px 12px
+        rgba(0, 0, 0, 0.14);
+
+    text-align: left;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.history-item:hover {
+
+    transform:
+        translateX(3px);
+
+    background:
+        #1D2137;
+}
+
+
+/* ========================================
+   履歴の日付
+======================================== */
+
+.history-date {
+
+    color:
+        #BCA8FF;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   履歴のメイン
+======================================== */
+
+.history-content {
+
+    color:
+        #F2F3FA;
+
+    font-size: 0.84rem;
+
+    font-weight: 800;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* ========================================
+   履歴の補足
+======================================== */
+
+.history-sub {
+
+    color:
+        var(--gray-text);
+
+    font-size: 0.68rem;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* ========================================
+   履歴がない場合
+======================================== */
+
+.history-empty {
+
+    padding:
+        30px 15px;
+
+    text-align: center;
+
+    color:
+        var(--gray-text);
+
+    font-size: 0.8rem;
+
+    line-height: 1.8;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.history-empty-icon {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 2.3rem;
+}
+
+
+/* ========================================
+   履歴画面ボタン
+======================================== */
+
+#screen-history .btn {
+
+    margin-top: 2px;
+}
+
+
+/* ========================================
+   完了画面ボタン
+======================================== */
+
+#screen-4 .btn {
+
+    margin-top: 1px;
+}
+
+
+/* ========================================
+   やめる確認画面
+======================================== */
+
+#screen-abort h1 {
+
+    margin-bottom: 3px;
+}
+
+
+/* ========================================
+   提案ボックス
+======================================== */
+
+.proposal-box {
+
+    padding:
+        16px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #232842,
+            #1A1E34
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+.proposal-box p {
+
+    margin: 0;
+
+    color:
+        #E8E9F3;
+
+    font-size: 0.84rem;
+
+    line-height: 1.7;
+}
+
+
+.proposal-box strong {
+
+    color:
+        #FFFFFF;
+
+    font-weight: 900;
+}
+
+
+/* ========================================
+   スクロールバー全体
+======================================== */
+
+* {
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #6250A8
+        transparent;
+}
+
+
+*::-webkit-scrollbar {
+
+    width: 5px;
+
+    height: 5px;
+}
+
+
+*::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+}
+
+
+*::-webkit-scrollbar-thumb {
+
+    background:
+        #6250A8;
+
+    border-radius:
+        10px;
+}
+
+
+/* ========================================
+   タッチ端末
+======================================== */
+
+@media (hover: none) {
+
+    .btn:hover {
+
+        transform: none;
+    }
+
+    .category-btn:hover {
+
+        transform: none;
+
+        box-shadow:
+            none;
+    }
+
+    .solution-card:hover {
+
+        transform: none;
+    }
+
+    .history-item:hover {
+
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 420px) {
+
+    body {
+
+        padding: 0;
+
+        align-items: stretch;
+    }
+
+
+    .app-container {
+
+        width: 100%;
+
+        max-width: none;
+
+        min-height: 100vh;
+
+        border-radius: 0;
+
+        border-left: none;
+
+        border-right: none;
+
+        box-shadow: none;
+    }
+
+
+    header {
+
+        min-height: 60px;
+
+        padding:
+            13px 15px;
+    }
+
+
+    .header-title {
+
+        font-size: 0.95rem;
+    }
+
+
+    .history-button {
+
+        padding:
+            6px 10px;
+
+        font-size: 0.7rem;
+    }
+
+
+    .content {
+
+        padding:
+            20px 16px;
+
+        max-height: none;
+    }
+
+
+    h1 {
+
+        font-size: 1.3rem;
+    }
+
+
+    .subtitle {
+
+        font-size: 0.78rem;
+    }
+
+
+    .reason-input {
+
+        min-height: 105px;
+
+        font-size: 0.86rem;
+    }
+
+
+    .btn {
+
+        padding:
+            13px 16px;
+
+        font-size: 0.88rem;
+    }
+
+
+    .record-card {
+
+        padding:
+            21px 15px;
+    }
+}
+
+
+/* ========================================
+   小さいスマホ
+======================================== */
+
+@media (max-width: 360px) {
+
+    .content {
+
+        padding:
+            17px 12px;
+    }
+
+
+    header {
+
+        padding:
+            12px;
+    }
+
+
+    .header-title {
+
+        font-size: 0.88rem;
+    }
+
+
+    .history-button {
+
+        font-size: 0.65rem;
+
+        padding:
+            6px 8px;
+    }
+
+
+    h1 {
+
+        font-size: 1.2rem;
+    }
+
+
+    .welcome-icon,
+    .result-icon {
+
+        width: 54px;
+
+        height: 54px;
+
+        font-size: 1.7rem;
+    }
+
+
+    .reason-input {
+
+        min-height: 100px;
+
+        padding: 12px;
+
+        font-size: 0.82rem;
+    }
+
+
+    .category-btn {
+
+        min-height: 80px;
+    }
+
+
+    .category-sub {
+
+        display: none;
+    }
+
+
+    .btn {
+
+        padding:
+            12px 14px;
+
+        font-size: 0.84rem;
+    }
+
+
+    .timer-display {
+
+        font-size: 2.6rem;
+    }
+}
+
+
+/* ========================================
+   極端に小さい画面
+======================================== */
+
+@media (max-width: 320px) {
+
+    .category-grid {
+
+        gap: 5px;
+    }
+
+
+    .category-btn {
+
+        min-height: 76px;
+
+        padding:
+            8px 7px;
+    }
+
+
+    .category-icon {
+
+        font-size: 1.1rem;
+    }
+
+
+    .category-name {
+
+        font-size: 0.7rem;
+    }
+}
+
+
+/* ========================================
+   アニメーションが苦手な人向け
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
