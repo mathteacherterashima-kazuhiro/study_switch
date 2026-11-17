@@ -1,4 +1,4 @@
-const CACHE_NAME = 'study-switch-v1';
+const CACHE_NAME = 'study-switch-v2';
 const urlsToCache = [
   'index.html',
   'manifest.json'
